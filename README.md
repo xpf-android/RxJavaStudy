@@ -5,4 +5,4 @@ RxJava概念与观察者设计模式。
     
 https://github.com/xpf-android/RxJavaStudy/tree/master/images
 <img src="L:\code\componentized\xiangxue\RxJavaStudy\images\观察者与被观察者.png"  />
-<img src="https://github.com\xpf-android\RxJavaStudy\tree/master\images\观察者与被观察者.png"  />
+<img src="https://github.com/xpf-android/RxJavaStudy/tree/master/images/观察者与被观察者.png"  />
