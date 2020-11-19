@@ -4,4 +4,3 @@ RxJava概念与观察者设计模式。
     3.RxJava是改装的观察者设计模式，一个订阅(注册) 一个观察者。
     
 
-<img src="L:\code\componentized\xiangxue\RxJavaStudy\images\观察者与被观察者.png"  />
