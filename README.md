@@ -26,3 +26,10 @@
 - 3.concatMap 把上一层Int  Int变换ObservableSource<Bitmap>{还可以再次发射多次事件}   观察者Bitmap类型。 排序的  
 - 4.groupBy   把上一层Int  Int变换String(高端配置电脑)     观察者GroupedObservable类型 {key="高端", 细节再包裹一层}  
 - 5.buffer    100个事件 Integer     .buffer(20)    观察者List<Integer>==五个集合  
+---------------------------------------------------------------------------------  
+05.RxJava过滤型操作符。  
+上游  ------->    过滤操作(往右边流向的时候，进行过滤)  ---------->  下游  
+- 1.filter 如果是false全部都发射给下游，如果是true，全部都不发射给下游。  
+- 2.take ：只有再定时器运行基础上 加入take过滤操作符，才有take过滤操作符的价值。  
+- 3.distinct过滤重复事件。  
+- 4.elementAl 指定发射事件内容，如果无法指定，有默认的事件。  
