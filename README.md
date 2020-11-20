@@ -56,5 +56,5 @@ RxJava作者: Android之神 2010 开源过Android开源的框架库， RxJava巅
 - startWait 先执行 startWait括号里面的被观察者  
 - concatWait 后执行 concatWait括号里面的被观察者  
 - concat 是按照顺序依次执行 最多四个被观察者进行合并  
-- merge 并列执行的，（演示并列的执行，所以学了intervalRange） 最多四个被观察者进行合并  
-- zip 需要对应关系 需要对应，如果不对应，会被忽略的， 最多9个被观察者 进行合并  
+- merge 并列执行的，（演示并列的执行，所以学了intervalRange） 最多四个被观察者进行合并(成一个)  
+- zip 需要对应关系 需要对应，如果不对应，会被忽略的， 最多9个被观察者 进行合并(成一个)  
