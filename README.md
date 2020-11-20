@@ -18,3 +18,11 @@
 - fromArray 内部自己发射的，数集对象  
 - empty：内部自己发射的 ，下游默认是Object，无法发出有值事件，只会发射 onComplete  
 - range：内部自己发射的，start 1 累加   count 5    最后结果：1 2 3 4 5    
+----------------------------------------------------------------------------  
+04.RxJava变换型操作符。  
+上游  ------->    变换操作(往右边流向的时候，进行变换)  ---------->  下游  
+- 1.map       把上一层Int  Int变换String                                           观察者String类型。  
+- 2.flatMap   把上一层Int  Int变换ObservableSource<String>{还可以再次发射多次事件}   观察者String类型。 不排序的  
+- 3.concatMap 把上一层Int  Int变换ObservableSource<Bitmap>{还可以再次发射多次事件}   观察者Bitmap类型。 排序的  
+- 4.groupBy   把上一层Int  Int变换String(高端配置电脑)     观察者GroupedObservable类型 {key="高端", 细节再包裹一层}  
+- 5.buffer    100个事件 Integer     .buffer(20)    观察者List<Integer>==五个集合  
