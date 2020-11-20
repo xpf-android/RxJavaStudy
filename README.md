@@ -11,3 +11,10 @@
 - 5.RxJava流程2，3个结论。 参考MainActivity的test5方法代码     
 - 6.RxJava切断下游，让下游不再接收上游发射的事件。参考MainActivity的test6方法代码      
 ----------------------------------------------------------------------------
+03.RxJava创建型操作符 -- 专门创建 被观察者/上游/Observable  
+- 观察者：下游，接收事件  完整版本Observer  简化版Consumer  
+- create：使用者自己发射事件  
+- just 内部自己发射的，单一对象  
+- fromArray 内部自己发射的，数集对象  
+- empty：内部自己发射的 ，下游默认是Object，无法发出有值事件，只会发射 onComplete  
+- range：内部自己发射的，start 1 累加   count 5    最后结果：1 2 3 4 5    
