@@ -62,7 +62,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     /**
-     * just 操作符
+     * just 操作符 参数个数可变，但不能为数组
      * 创建Observable 被观察者
      * @param view
      */
@@ -95,7 +95,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     /**
-     * just 操作符
+     * fromArray 操作符 参数可以为数组
      * 创建Observable 被观察者
      * @param view
      */
