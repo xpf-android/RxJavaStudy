@@ -148,78 +148,7 @@ public class Main4Activity extends AppCompatActivity {
     }
 
 
-    /**
-     * 分组变换 groupBy
-     * 下游 有自己的使用标准
-     * @param view
-     */
-    @SuppressLint("CheckResult")
-    public void test5(View view) {
-        // 上游
-        Observable.just(6000, 7000, 8000, 9000, 10000, 14000)
 
-                // 变换
-                .groupBy(new Function<Integer, String>() {
-                    @Override
-                    public String apply(Integer integer) throws Exception {
-                        return integer > 8000 ? "高端配置电脑" : "中端配置电脑"; // 分组
-                    }
-                })
-
-                // 订阅
-                /*.subscribe(new Consumer<String>() { // 下游 使用 groupBy
-                    @Override
-                    public void accept(String string) throws Exception {
-
-                    }
-                });*/
-
-                // 使用groupBy下游是 有标准的
-                .subscribe(new Consumer<GroupedObservable<String, Integer>>() {
-                    @Override
-                    public void accept(final GroupedObservable<String, Integer> groupedObservable) throws Exception {
-                        Log.d(Cons.TAG, "accept: " + groupedObservable.getKey());
-                        // 以上还不能把信息给打印全面，只是拿到了，分组的key
-
-                        // 输出细节，还需要再包裹一层
-                        // 细节 GroupedObservable 被观察者
-                        groupedObservable.subscribe(new Consumer<Integer>() {
-                            @Override
-                            public void accept(Integer integer) throws Exception {
-                                Log.d(Cons.TAG, "accept: 类别：" + groupedObservable.getKey() + "  价格：" + integer);
-                            }
-                        });
-                    }
-                });
-    }
-
-
-    /**
-     * 很多的数据，不想全部一起发射出去，分批次，先缓存到Buffer
-     * 有间接分组的意思
-     * @param view
-     */
-    @SuppressLint("CheckResult")
-    public void test6(View view) {
-        // 上游
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                for (int i = 0; i < 100; i++) {
-                    e.onNext(i);
-                }
-                e.onComplete();
-            }
-        })
-        // 变换 buffer
-        .buffer(30)
-        .subscribe(new Consumer<List<Integer>>() {
-            @Override
-            public void accept(List<Integer> integer) throws Exception {
-                Log.d(Cons.TAG, "accept: " + integer);
-            }
-        });
-    }
 
     @Override
     protected void onDestroy() {
