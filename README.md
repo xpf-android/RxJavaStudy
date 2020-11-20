@@ -7,7 +7,7 @@
 - 1.上游 Observable 被观察者， 下游 Observer 观察者。  
 - 2.ObservableEmitter<Integer> emitter 发射器 发射事件。    
 - 3.拆分来写的，链式调用。  
-- 4.RxJava流程1，大致流程，同学们去看代码。  
-- 5.RxJava流程2，3个结论。  
+- 4.RxJava流程1，大致流程，参考MainActivity的test4方法代码    
+- 5.RxJava流程2，3个结论。 参考MainActivity的test5方法代码     
 - 6.RxJava切断下游，让下游不再接收上游发射的事件。    
 ----------------------------------------------------------------------------
