@@ -2,6 +2,7 @@ package com.xpf.rxjava.study;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import utils.Cons;
-
+//创建型操作符
 public class Main2Activity extends AppCompatActivity {
 
     @Override
@@ -99,6 +100,7 @@ public class Main2Activity extends AppCompatActivity {
      * 创建Observable 被观察者
      * @param view
      */
+    @SuppressLint("CheckResult")
     public void test3(View view) {
         /*String[] strings = {"1","2","3"};
         //TODO 上游 Observable 被观察者
