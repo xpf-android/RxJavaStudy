@@ -32,7 +32,7 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_main);
     }
 
     /**
@@ -116,7 +116,7 @@ public class Main4Activity extends AppCompatActivity {
     }
 
     /**
-     * elementAl 指定过滤的内容
+     * elementAt 指定过滤的内容
      * @param view
      */
     @SuppressLint("CheckResult")
