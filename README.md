@@ -58,3 +58,11 @@ RxJava作者: Android之神 2010 开源过Android开源的框架库， RxJava巅
 - concat 是按照顺序依次执行 最多四个被观察者进行合并  
 - merge 并列执行的，（演示并列的执行，所以学了intervalRange） 最多四个被观察者进行合并(成一个)  
 - zip 需要对应关系 需要对应，如果不对应，会被忽略的， 最多9个被观察者 进行合并(成一个)  
+----------------------------------------------------------------------------------------
+08.RxJava异常处理操作符  
+- 1.RxJava中是不标准的throw new IllegalAccessError("我要报错了");  
+- 2. RxJava标准的e.onError(XXX);  
+- 3.onErrorReturn最先拦截到e.onError并且可以给下游返回一个 标识400,   throw new  XXX 拦截不到，整个程序奔溃  
+- 4.onErrorResumeNext最先拦截到e.onError并且可以给下游返回一个 被观察者（还可以再次发送）,   throw new  XXX 拦截不到，整个程序奔溃  
+- 5.onExceptionResumeNext 能在发生异常的时候，扭转乾坤，能够处理 throw new  XXX，可以真正的让App不奔溃  
+- 6.retry return false; 代表不去重试  return true; 不停的重试，  演示二 重试次数，  演示三 打印重试了多少次，计数  
