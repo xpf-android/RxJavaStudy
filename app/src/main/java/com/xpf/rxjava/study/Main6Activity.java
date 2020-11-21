@@ -247,31 +247,8 @@ public class Main6Activity extends AppCompatActivity {
     }
 
 
-    /**
-     * 很多的数据，不想全部一起发射出去，分批次，先缓存到Buffer
-     * 有间接分组的意思
-     * @param view
-     */
-    @SuppressLint("CheckResult")
     public void test6(View view) {
-        // 上游
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                for (int i = 0; i < 100; i++) {
-                    e.onNext(i);
-                }
-                e.onComplete();
-            }
-        })
-        // 变换 buffer
-        .buffer(30)
-        .subscribe(new Consumer<List<Integer>>() {
-            @Override
-            public void accept(List<Integer> integer) throws Exception {
-                Log.d(Cons.TAG, "accept: " + integer);
-            }
-        });
+
     }
 
     @Override
