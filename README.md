@@ -61,8 +61,21 @@ RxJava作者: Android之神 2010 开源过Android开源的框架库， RxJava巅
 ----------------------------------------------------------------------------------------
 08.RxJava异常处理操作符  
 - 1.RxJava中是不标准的throw new IllegalAccessError("我要报错了");  
-- 2. RxJava标准的e.onError(XXX);  
+- 2.RxJava标准的e.onError(XXX);  
 - 3.onErrorReturn最先拦截到e.onError并且可以给下游返回一个 标识400,   throw new  XXX 拦截不到，整个程序奔溃  
 - 4.onErrorResumeNext最先拦截到e.onError并且可以给下游返回一个 被观察者（还可以再次发送）,   throw new  XXX 拦截不到，整个程序奔溃  
 - 5.onExceptionResumeNext 能在发生异常的时候，扭转乾坤，能够处理 throw new  XXX，可以真正的让App不奔溃  
 - 6.retry return false; 代表不去重试  return true; 不停的重试，  演示二 重试次数，  演示三 打印重试了多少次，计数  
+----------------------------------------------------------------------------------------------------------------------------
+09.RxJava线程切换  
+- 1.异步线程区域  
+        Schedulers.io() ：代表io流操作，网络操作，文件流，耗时操作  
+        Schedulers.newThread()    ： 比较常规的，普普通通  
+        Schedulers.computation()  ： 代表CPU 大量计算 所需要的线程  
+- 2.AndroidSchedulers.mainThread()  ： 专门为Android main线程量身定做的  
+- 3.给上游分配多次，只会在第一次切换，后面的不切换了（忽略）  
+- 4.给下游分配多次，每次都会去切换  
+- 5.如果不配置异步线程，上游发一次，下游接收一次，上游发一次，下游接收一次，上游发一次，下游接收一次  
+- 6.配置好异步线程，就是异步的表现  
+- 7.传统下载图片的写法，容易四分五裂  
+- 8.RxJava下载图片，基于事件流编程，一条链子，起点和终点  
