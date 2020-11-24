@@ -143,29 +143,5 @@ public class Main9Activity extends AppCompatActivity {
     }
 
 
-    /**
-     *
-     * @param view
-     */
-    public void test4(View view) {
-
-    }
-
-    /**
-     *
-     * @param view
-     */
-    public void test5(View view) {
-
-    }
-
-    /**
-     *
-     * @param view
-     */
-    public void test6(View view) {
-
-    }
-
 
 }
