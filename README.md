@@ -108,7 +108,7 @@ Flowable的设计，是按照Observable 依葫芦画瓢来设计Flowable，所�
 --------------------------------------------------------------------------------------------------
 12.RxJava配合Retrofit  
 RxJava + Retrofit （请求网络OkHttp  ---- Retorfit  --- Observable）    
-- 1.OkHttp 请求网络 （Retorfit）  
+- 1.OkHttp 请求网络 （Retorfit）
 - 2.Retorfit 返回一个结果 （Retorfit） --- Observable  
 - 3.最终的结果 是RxJava中的 被观察者 上游 Observable  
 - 4.一行代码写完需求流程： 从上往下  
