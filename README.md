@@ -105,3 +105,24 @@ Flowable的设计，是按照Observable 依葫芦画瓢来设计Flowable，所�
 - 2.Observable的设计和  Flowable一致的，在Observable的基础上 增加了一套Flowable的代码，而且增加的时候 依葫芦画瓢的，Flowable增加了背压模式  
 - 3.Observable--Observer下游 -- onSubscribe(Disposable d)切断下游（水管）  
 - 4.Flowable---Subscriber下游 -- onSubscribe(Subscription s) 取出（s.request(5)）事件 给下游接收使用  
+--------------------------------------------------------------------------------------------------
+12.RxJava配合Retrofit  
+RxJava + Retrofit （请求网络OkHttp  ---- Retorfit  --- Observable）  
+
+- 1.OkHttp 请求网络 （Retorfit）  
+- 2.Retorfit 返回一个结果 （Retorfit） --- Observable  
+- 3.最终的结果 是RxJava中的 被观察者 上游 Observable  
+- 4.一行代码写完需求流程： 从上往下  
+   1.请求服务器，执行注册操作（耗时）切换异步线程  
+   2.更新注册后的所有 注册相关UI - main  切换主线程  
+   3.请求服务器，执行登录操作（耗时）切换异步线程  
+   4.更新登录后的所有 登录相关UI - main  切换主线程  
+
+- 5.看RxJava另外一种的执行流程  
+  初始点 开始点 订阅  
+  1.onSubscribe  
+  2.registerAction(new RegisterRequest())  
+  3..doOnNext 更新注册后的 所有UI  
+  4.flatMap执行登录的耗时操作  
+  5.订阅的观察者 下游 onNext 方法，更新所有登录后的UI  
+  6.progressDialog.dismiss()  
