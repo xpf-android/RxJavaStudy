@@ -35,6 +35,9 @@ public class Main2Activity extends AppCompatActivity {
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
                 //上游发射事件
                 emitter.onNext("A");//使用者手动发射
+                emitter.onNext("A");//使用者手动发射
+                emitter.onNext("A");//使用者手动发射
+                emitter.onNext("A");//使用者手动发射
             }
         })
         //订阅操作
