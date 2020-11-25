@@ -107,8 +107,7 @@ Flowable的设计，是按照Observable 依葫芦画瓢来设计Flowable，所�
 - 4.Flowable---Subscriber下游 -- onSubscribe(Subscription s) 取出（s.request(5)）事件 给下游接收使用  
 --------------------------------------------------------------------------------------------------
 12.RxJava配合Retrofit  
-RxJava + Retrofit （请求网络OkHttp  ---- Retorfit  --- Observable）  
-
+RxJava + Retrofit （请求网络OkHttp  ---- Retorfit  --- Observable）    
 - 1.OkHttp 请求网络 （Retorfit）  
 - 2.Retorfit 返回一个结果 （Retorfit） --- Observable  
 - 3.最终的结果 是RxJava中的 被观察者 上游 Observable  
