@@ -97,3 +97,11 @@ Observable --- > Flowable（解决背压）
 - 4.异步的，上游不停的发射，可以在r02方法中，s.request(10)  可以取出来给 下游接收事件处理的  
 - 5.一旦下游处理了一次上游的事件，缓存池 - 1  
 - 6.Observable 它的升级版 Flowable：功能强大，还有背压模式。  
+--------------------------------------------------------------------------
+11.Flowable  --- Observable  
+如果我们会使用Observable， 那么一定会使用Flowable  
+Flowable的设计，是按照Observable 依葫芦画瓢来设计Flowable，所以使用才一摸一样，只不过类名不同而已， Flowable还增加了背压模式  
+- 1.Observable<--->Observer， Flowable<--->Subscriber  对应关系 ？  
+- 2.Observable的设计和  Flowable一致的，在Observable的基础上 增加了一套Flowable的代码，而且增加的时候 依葫芦画瓢的，Flowable增加了背压模式  
+- 3.Observable--Observer下游 -- onSubscribe(Disposable d)切断下游（水管）  
+- 4.Flowable---Subscriber下游 -- onSubscribe(Subscription s) 取出（s.request(5)）事件 给下游接收使用  
