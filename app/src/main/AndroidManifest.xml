@@ -83,6 +83,7 @@
             </intent-filter>
             -->
         </activity>
+        <activity android:name=".retrofit_okhttp_rxjava.TestActivity" />
 
 
     </application>
