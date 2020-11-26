@@ -65,4 +65,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * todo just操作符手写及测试
+     * @param view
+     */
+    public void test2(View view) {
+        //上游
+        Observable.just("A","B","C","D","E","F")//todo 内部执行第2步
+                //订阅
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe() {
+                        //todo 1
+                        Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
+                    }
+
+                    @Override
+                    public void onNext(String item) {
+                        //todo 3
+                        Log.d(TAG, "下游 接收处理 onNext: " + item);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        // todo 4
+                        Log.d(TAG, "onComplete: 下游接收事件完毕...");
+                    }
+                });
+    }
 }
