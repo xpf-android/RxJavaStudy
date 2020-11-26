@@ -29,7 +29,7 @@ public class TestClient<T> {
         /*Test<Worker> test = null;
         test.add(new Worker()); // 只能传递Worker*/
 
-        //  下面时 上限 和 下限 的测试
+        //上限 和 下限 的测试 上下限是针对方法参数中使用通配符泛型
 
 
         // todo 上限
@@ -47,7 +47,7 @@ public class TestClient<T> {
         show2(new Test<Object>()); // 父类
 
 
-        // todo 读写模式
+        // todo 读写模式测试  针对类泛型中涉及的通配符问题
 
         // todo 可读模式
         /*Test<? extends Person> test1 = null;
