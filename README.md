@@ -143,7 +143,6 @@ RxJava + Retrofit （请求网络OkHttp  ---- Retorfit  --- Observable）
 RxJava执行的流程：  
  订阅  
    subscribe方法  ---》 上游发射器 observableEmitter.xxx ---> Observer 三个方法中 接收  
-
  什么时候能够区分是 读写模式， 什么时候可以区分是 上限和下限的方式 ？  
  答：在方法参数中，show2(Test<? super Student> test) 一定是 上限和下限  
      在真正使用到泛型中(有对泛型的赋值相关操作)，就是读写模式  
