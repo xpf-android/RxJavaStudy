@@ -109,11 +109,17 @@ public class Main3Activity extends AppCompatActivity {
 
                     // integer == 111
 
+
                     // ObservableSource == 可以再次手动发送事件
                     return Observable.create(new ObservableOnSubscribe<String>() {
                         @Override
                         public void subscribe(ObservableEmitter<String> e) throws Exception {
+
+                            /*e.onNext(integer + " flatMap变换操作符");
+                            e.onNext(integer + " flatMap变换操作符");
+                            e.onNext(integer + " flatMap变换操作符");*/
                             //实际运行结果：如果是重复多次发射完全相同的事件，并不一定每次都会被下游接收
+                            //完全相同的事件多次重复发射，下游默认接收两次
                             e.onNext(integer + " flatMap变换操作符 1");
                             e.onNext(integer + " flatMap变换操作符 2");
                             e.onNext(integer + " flatMap变换操作符 3");
