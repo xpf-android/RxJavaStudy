@@ -99,4 +99,67 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    /**
+     * map操作符手写及测试
+     * @param view
+     */
+    public void test3(View view) {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(Observer<? super Integer> observableEmitter) { // 使用到了，就产生了读写模式
+                Log.d(TAG, "subscribe: 上游开始发射...");
+                // 发射事件  可写的
+                // todo 使用者去调用发射 2
+                observableEmitter.onNext(9); //  <? extends Integer> 不可写了   <? super Integer>可写
+                observableEmitter.onComplete();
+            }
+        })
+
+                .map(new Function<Integer, String>() {
+                    @Override
+                    public String apply(Integer integer) {
+                        Log.d(TAG, "第1个变换 apply: " + integer);
+                        return "【" + integer + "】";
+                    }
+                })
+
+                .map(new Function<String, StringBuffer>() {
+                    @Override
+                    public StringBuffer apply(String s) {
+                        Log.d(TAG, "第2个变换 apply: " + s);
+                        return new StringBuffer().append(s).append("-----------------------");
+                    }
+                })
+
+                // Observable<Integer>.subscribe
+                .subscribe(new Observer<StringBuffer>() { // 下游
+                    // 接口的实现方法
+                    @Override
+                    public void onSubscribe() {
+                        // todo 1
+                        Log.d(TAG, "已经订阅成功，即将开始发射 onSubscribe: ");
+                    }
+
+                    // 接口的实现方法
+                    @Override
+                    public void onNext(StringBuffer item) {
+                        // todo 3
+                        Log.d(TAG, "下游接收事件 onNext: " + item); // 【9】-----------------------
+                    }
+
+                    // 接口的实现方法
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    // 接口的实现方法
+                    @Override
+                    public void onComplete() {
+                        // todo 4 最后一步
+                        Log.d(TAG, "onComplete: 下游接收事件完成√√√√√√√√√√√√√√");
+                    }
+                });
+    }
 }
